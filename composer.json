@@ -24,7 +24,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Eyika\\Atom\\": "src/"
+            "Eyika\\Atom\\": "app/"
         }
     },
     "authors": [
