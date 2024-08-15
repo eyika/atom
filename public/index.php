@@ -60,7 +60,9 @@ require __DIR__."/src/libs/helpers.php";
 */
 
 try {
-    $server = new Server(['env']);
+    $app = require_once __DIR__.'/../bootstrap/app.php';
+
+    $server = new Server($app);
     $server->handle($_ENV['APP_BASE_PATH'] ?? dirname(__DIR__));
 } catch (\Exception $e) {
     echo $e->getMessage();
