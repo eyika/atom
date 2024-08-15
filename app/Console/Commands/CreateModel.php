@@ -15,9 +15,9 @@ class CreateModel extends Command
         
         $model_template = "<?php
 
-namespace Basttyy\FxDataServer\Models;
+namespace App\Models;
 
-use Basttyy\FxDataServer\Models\Model;
+use App\Models\Model;
 
 final class {$name} extends Model
 {

@@ -29,12 +29,12 @@ $app = new Application(
 */
 
 $app->singleton(
-    Eyika\Atom\Framework\Foundation\Kernel::class,
+    Eyika\Atom\Framework\Foundation\Contracts\Kernel::class,
     App\Http\Kernel::class
 );
 
 $app->singleton(
-    Eyika\Atom\Framework\Foundation\ConsoleKernel::class,
+    Eyika\Atom\Framework\Foundation\Contracts\ConsoleKernel::class,
     App\Console\Kernel::class
 );
 

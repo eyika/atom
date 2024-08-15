@@ -1,7 +1,9 @@
 <?php
 namespace App\Mail;
 
-class Mailer extends Mailer
+use Eyika\Atom\Framework\Support\Mailer as BaseMailer;
+
+class Mailer extends BaseMailer
 {
 
 }

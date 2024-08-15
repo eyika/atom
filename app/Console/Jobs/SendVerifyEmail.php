@@ -1,9 +1,8 @@
 <?php
 namespace App\Mail;
 
-use Basttyy\FxDataServer\Console\Concerns\ShouldQueue;
-use Basttyy\FxDataServer\libs\Mail\VerifyEmail;
 use Exception;
+use Eyika\Atom\Framework\Foundation\Console\Concerns\ShouldQueue;
 use Eyika\Atom\Framwork\Foundation\Console\Contracts\QueueInterface;
 
 class SendVerifyEmail implements QueueInterface
