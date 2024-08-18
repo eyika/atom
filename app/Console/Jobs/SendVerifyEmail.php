@@ -3,7 +3,7 @@ namespace App\Mail;
 
 use Exception;
 use Eyika\Atom\Framework\Foundation\Console\Concerns\ShouldQueue;
-use Eyika\Atom\Framwork\Foundation\Console\Contracts\QueueInterface;
+use Eyika\Atom\Framework\Foundation\Console\Contracts\QueueInterface;
 
 class SendVerifyEmail implements QueueInterface
 {

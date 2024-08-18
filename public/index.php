@@ -2,12 +2,11 @@
 
 use Eyika\Atom\Framework\Http\Server;
 
+date_default_timezone_set('UTC');
 define('ATOM_START', microtime(true));
 
 $log_path = __DIR__."/../storage/logs/php_error.log";
 ini_set('error_log', $log_path);
-
-date_default_timezone_set('UTC');
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +35,7 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 */
 
 require __DIR__.'/../vendor/autoload.php';
+require_once __DIR__."/vendor/eyika/atom-framework/src/helpers.php";
 
 /*
 |--------------------------------------------------------------------------
@@ -63,7 +63,7 @@ try {
     $app = require_once __DIR__.'/../bootstrap/app.php';
 
     $server = new Server($app);
-    $server->handle($_ENV['APP_BASE_PATH'] ?? dirname(__DIR__));
+    $server->handle();
 } catch (\Exception $e) {
     echo $e->getMessage();
 }

@@ -3,7 +3,7 @@
 namespace App\Console;
 
 use Eyika\Atom\Framework\Foundation\ConsoleKernel;
-use Eyika\Atom\Framwork\Foundation\Console\Command;
+use Eyika\Atom\Framework\Foundation\Console\Command;
 
 class Kernel extends ConsoleKernel
 {
@@ -11,7 +11,7 @@ class Kernel extends ConsoleKernel
 
     public function __construct()
     {
-        $this->load();
+        $this->loadCommands();
     }
 
     public function register(string $name, Command $command)

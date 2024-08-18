@@ -1,7 +1,13 @@
 #!/usr/bin/env php
 <?php
 
-define('LARAVEL_START', microtime(true));
+use Eyika\Atom\Framework\Support\Facade\Facade;
+
+date_default_timezone_set('UTC');
+define('ATOM_START', microtime(true));
+
+$log_path = __DIR__."/../storage/logs/php_error.log";
+ini_set('error_log', $log_path);
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +22,12 @@ define('LARAVEL_START', microtime(true));
 */
 
 require __DIR__.'/vendor/autoload.php';
+require_once __DIR__."/vendor/eyika/atom-framework/src/helpers.php";
 
 $app = require_once __DIR__.'/bootstrap/app.php';
+/** @var Eyika\Atom\Framework\Foundation\Application $app */
+
+Facade::setFacadeApplication($app);
 
 /*
 |--------------------------------------------------------------------------
@@ -40,10 +50,13 @@ $kernel = $app->make(Eyika\Atom\Framework\Foundation\Contracts\ConsoleKernel::cl
 // );
 
 $arg_v = $argv;
-$command = array_shift($arg_v) ?? 'random-quote';
-$class_args = $arg_v ?? [];
 
-$kernel->run($command, $class_args);
+array_shift($arg_v);
+print_r($arg_v);
+$command = array_shift($arg_v) ?? 'random-quote';
+$inputs = $arg_v ?? [];
+
+$kernel->run($command, $inputs);
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +69,6 @@ $kernel->run($command, $class_args);
 |
 */
 
-$status = $kernel->terminate($input);
+$status = $kernel->terminate($inputs);
 
 exit($status);
