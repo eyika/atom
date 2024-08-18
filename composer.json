@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "eyika/atom-framework": "dev-main",
+        "eyika/atom-framework": "dev-dev",
         "nesbot/carbon": "^3.7",
         "monolog/monolog": "^3.7",
         "predis/predis": "^2.2",
