@@ -35,7 +35,6 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 */
 
 require __DIR__.'/../vendor/autoload.php';
-require_once __DIR__."/vendor/eyika/atom-framework/src/helpers.php";
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +45,7 @@ require_once __DIR__."/vendor/eyika/atom-framework/src/helpers.php";
 | for performing regular computations.
 |
 */
-require __DIR__."/src/libs/helpers.php";
+require_once __DIR__."/../vendor/eyika/atom-framework/src/helpers.php";
 
 /*
 |--------------------------------------------------------------------------
