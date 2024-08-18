@@ -3,6 +3,12 @@
 return [
 
     /**
+     * This will determine wether to use Advance Templating Bladelike Templating Engine
+     * For Compiling Views and Email Templates or Basic Twig-like Templating Engine
+     */
+    'use_advance_engine' => env('USE_ADVANCE_ENGINE', 'true') == 'true',
+
+    /**
      * This will determine if the engine will work in fast mode or debug mode
      * 
      * options are: 0: auto, 1: slow, 2: fast, 5: debug
