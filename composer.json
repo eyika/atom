@@ -29,7 +29,8 @@
     "license": "MIT",
     "scripts": {
         "post-create-project-cmd": [
-            "Eyika\\Atom\\Framework\\Support\\Setup::postCreateProject"
+            "Eyika\\Atom\\Framework\\Support\\Setup::postCreateProject",
+            "cp .env.example .env"
         ]
     },
     "autoload": {
