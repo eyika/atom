@@ -13,7 +13,7 @@ class SendVerifyEmail implements QueueInterface
     private $subject;
     private $max_attempts;
 
-    public function __construct(array $user, string $subject = "BacktestFx Account", $max_attempts = 3)
+    public function __construct(array $user, string $subject = "Verify your email", $max_attempts = 3)
     {
         $this->user = $user;
         $this->subject = $subject;
