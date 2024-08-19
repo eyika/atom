@@ -2,7 +2,20 @@
 
 namespace App\Http;
 
+use Basttyy\FxDataServer\Middlewares\ThrottleRequestsMiddleware;
 use Eyika\Atom\Framework\Foundation\Kernel as FoundationKernel;
+use Eyika\Atom\Framework\Http\Middlewares\AuthenticateSession;
+use Eyika\Atom\Framework\Http\Middlewares\ConvertEmptyStringsToNull;
+use Eyika\Atom\Framework\Http\Middlewares\EncryptCookies;
+use Eyika\Atom\Framework\Http\Middlewares\HandleCors;
+use Eyika\Atom\Framework\Http\Middlewares\PreventRequestsDuringMaintenance;
+use Eyika\Atom\Framework\Http\Middlewares\ShareErrorsFromSession;
+use Eyika\Atom\Framework\Http\Middlewares\StartSession;
+use Eyika\Atom\Framework\Http\Middlewares\SubstituteBindings;
+use Eyika\Atom\Framework\Http\Middlewares\TrimStrings;
+use Eyika\Atom\Framework\Http\Middlewares\TrustProxies;
+use Eyika\Atom\Framework\Http\Middlewares\ValidatePostSize;
+use Eyika\Atom\Framework\Http\Middlewares\VerifyCsrfToken;
 
 class Kernel extends FoundationKernel
 {
@@ -14,11 +27,11 @@ class Kernel extends FoundationKernel
      * @var array
      */
     protected $middleware = [
-        // TrustProxies::class,
-        // PreventRequestsDuringMaintenance::class,
-        // ValidatePostSize::class,
-        // TrimStrings::class,
-        // ConvertEmptyStringsToNull::class,
+        TrustProxies::class,
+        PreventRequestsDuringMaintenance::class,
+        ValidatePostSize::class,
+        TrimStrings::class,
+        ConvertEmptyStringsToNull::class,
     ];
 
     /**
@@ -28,20 +41,20 @@ class Kernel extends FoundationKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            // StartSession::class,
-            // ShareErrorsFromSession::class,
-            // EncryptCookies::class,
+            StartSession::class,
+            ShareErrorsFromSession::class,
+            EncryptCookies::class,
             // AddQueuedCookiesToResponse::class,
-            // AuthenticateSession::class,
-            // VerifyCsrfToken::class,
-            // SubstituteBindings::class,
+            AuthenticateSession::class,
+            VerifyCsrfToken::class,
+            SubstituteBindings::class,
         ],
 
         'api' => [
-            // HandleCors::class,
+            HandleCors::class,
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            // \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
-            // SubstituteBindings::class,
+            ThrottleRequestsMiddleware::class.':api',
+            SubstituteBindings::class,
         ],
     ];
 
