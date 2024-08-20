@@ -44,7 +44,7 @@ class Kernel extends FoundationKernel
             StartSession::class,
             ShareErrorsFromSession::class,
             EncryptCookies::class,
-            // AddQueuedCookiesToResponse::class,
+            // AddQueuedCookiesToResponse::class,  NOT Yet implemented
             AuthenticateSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
@@ -52,7 +52,7 @@ class Kernel extends FoundationKernel
 
         'api' => [
             HandleCors::class,
-            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            // EnsureFrontendRequestsAreStateful::class,  NOT Yet implemented
             ThrottleRequestsMiddleware::class.':api',
             SubstituteBindings::class,
         ],
@@ -75,21 +75,10 @@ class Kernel extends FoundationKernel
         // 'password.confirm' => RequirePassword::class,
         // 'signed' => ValidateSignature::class,
         // 'throttle' => ThrottleRequests::class,
-        // 'verified' => EnsureEmailIsVerified::class,
         // 'role' => RoleMiddleware::class,
         // 'permission' => PermissionMiddleware::class,
         // 'role_or_permission' => RoleOrPermissionMiddleware::class,
         // 'xss' => XSS::class,
-        // 'checkUserStatus' => CheckUserStatus::class,
-        // 'modules' => CheckModule::class,
-        // 'setLanguage' => SetLanguage::class,
-        // 'languageChangeName' => LanguageChangeMiddleware::class,
-        // 'multi_tenant' => MultiTenantMiddleware::class,
-        // 'check_impersonate' => CheckImpersonateUser::class,
-        // 'setTenantFromUsername' => SetTenantFromUsername::class,
-        // 'check_super_admin_role' => CheckSuperAdminRole::class,
-        // 'check_subscription' => CheckSubscription::class,
-        // 'check_menu_access' => CheckMenuAccess::class,
     ];
 
     /**
