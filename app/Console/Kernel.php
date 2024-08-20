@@ -14,17 +14,18 @@ class Kernel extends ConsoleKernel
         $this->loadCommands();
     }
 
-    public function register(string $name, Command $command)
+    public function register(string $name, Command $command, array $options = [])
     {
-        $this->commands[$name] = $command;
+        $this->commands[$name] = [ 'command' => $command, 'options' => $options ];
     }
 
     public function run(string $name, array $arguments = [])
     {
         if (isset($this->commands[$name])) {
-            $this->status = $this->commands[$name]->handle($arguments);
+            $this->commands[$name]['command']->setAllowedOptions($this->commands[$name]['options']);
+            $this->status = $this->commands[$name]['command']->handle($arguments);
         } else {
-            echo "Error: Command '$name' not found." . PHP_EOL;
+            consoleLog(1, "Error: Command '$name' not found." . PHP_EOL);
         }
     }
 }

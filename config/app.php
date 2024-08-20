@@ -1,5 +1,7 @@
 <?php
 
+use Eyika\Atom\Framework\Support\Facade\Facade;
+
 return [
 
     /*
@@ -13,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Atom'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +58,6 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
     'media_disc' => env('MEDIA_DISK', 'public'),
-
-    'google_oauth_path' => env('GOOGLE_OAUTH_PATH'),
 
     /*
     |--------------------------------------------------------------------------
@@ -126,23 +126,6 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
-    'recaptcha' => [
-        'key' => env('NOCAPTCHA_SITEKEY'),
-        'secret' => env('NOCAPTCHA_SECRET'),
-    ],
-
-    /*
-     | ------------------------------------------------------------------------
-     | Zoom API Key
-     | ------------------------------------------------------------------------
-     | This key is used for the Zoom API calls
-     */
-
-    'zoom_api_key' => env('ZOOM_API_KEY'),
-    'zoom_api_secret' => env('ZOOM_API_SECRET'),
-    'zoom_api_url' => env('ZOOM_API_URL', ''),
-    'zoom_callback' => env('ZOOM_REDIRECT_URL', ''),
-
     /*********************************************************************
      *                                                                   *
      *   Everything below here will be implemented in a future release   *
@@ -166,29 +149,15 @@ return [
     //     /*
     //      * Package Service Providers...
     //      */
-    //     Spatie\Permission\PermissionServiceProvider::class,
-    //     Mews\Purifier\PurifierServiceProvider::class,
-    //     App\Providers\TenancyServiceProvider::class,
-    //     Lab404\Impersonate\ImpersonateServiceProvider::class,
-    //     Mariuzzo\LaravelJsLocalization\LaravelJsLocalizationServiceProvider::class,
-    //     Anand\LaravelPaytmWallet\PaytmWalletServiceProvider::class,
-    //     Unicodeveloper\Paystack\PaystackServiceProvider::class,
-    //     KingFlamez\Rave\RaveServiceProvider::class,
+
     //     /*
     //      * Application Service Providers...
     //      */
     //     App\Providers\AppServiceProvider::class,
     //     App\Providers\AuthServiceProvider::class,
-    //     Barryvdh\DomPDF\ServiceProvider::class,
     //     // App\Providers\BroadcastServiceProvider::class,
     //     App\Providers\EventServiceProvider::class,
     //     App\Providers\RouteServiceProvider::class,
-    //     Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-    //     Barryvdh\Debugbar\ServiceProvider::class,
-    //     Maatwebsite\Excel\ExcelServiceProvider::class,
-    //     SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-    //     Laravel\Sanctum\SanctumServiceProvider::class,
-    //     Propaganistas\LaravelPhone\PhoneServiceProvider::class,
 
     // ])->toArray(),
 
@@ -203,17 +172,7 @@ return [
     |
     */
 
-    // 'aliases' => Facade::defaultAliases()->merge([
-    //     'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
-    //     'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-    //     'Flash' => Laracasts\Flash\Flash::class,
-    //     'Form' => Collective\Html\FormFacade::class,
-    //     'Html' => Collective\Html\HtmlFacade::class,
-    //     'Purifier' => Mews\Purifier\Facades\Purifier::class,
-    //     'PaytmWallet' => Anand\LaravelPaytmWallet\Facades\PaytmWallet::class,
-    //     'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
-    //     'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-    //     'Rave' => KingFlamez\Rave\Facades\Rave::class,
-    // ])->toArray(),
-
+    'aliases' => Facade::defaultAliases()->merge([
+        // 'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
+    ])->toArray(),
 ];

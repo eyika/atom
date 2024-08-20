@@ -2,6 +2,21 @@
 
 return [
 
+    /**
+     * This will determine wether to use Advance Templating Bladelike Templating Engine
+     * For Compiling Views and Email Templates or Basic Twig-like Templating Engine
+     */
+    'use_advance_engine' => env('USE_ADVANCE_ENGINE', 'true') == 'true',
+
+    /**
+     * This will determine if the engine will work in fast mode or debug mode
+     * 
+     * options are: 0: auto, 1: slow, 2: fast, 5: debug
+     * 
+     * A reasonable default has been set
+     */
+    'mode' => env('VIEW_MODE'),
+
     /*
     |--------------------------------------------------------------------------
     | View Storage Paths
@@ -9,7 +24,7 @@ return [
     |
     | Most templating systems load templates from disk. Here you may specify
     | an array of paths that should be checked for your views. Of course
-    | the usual Laravel view path has already been registered for you.
+    | the usual Atom view path has already been registered for you.
     |
     */
 
