@@ -2,7 +2,6 @@
 
 namespace App\Http;
 
-use Basttyy\FxDataServer\Middlewares\ThrottleRequestsMiddleware;
 use Eyika\Atom\Framework\Foundation\Kernel as FoundationKernel;
 use Eyika\Atom\Framework\Http\Middlewares\AuthenticateSession;
 use Eyika\Atom\Framework\Http\Middlewares\ConvertEmptyStringsToNull;
@@ -12,6 +11,7 @@ use Eyika\Atom\Framework\Http\Middlewares\PreventRequestsDuringMaintenance;
 use Eyika\Atom\Framework\Http\Middlewares\ShareErrorsFromSession;
 use Eyika\Atom\Framework\Http\Middlewares\StartSession;
 use Eyika\Atom\Framework\Http\Middlewares\SubstituteBindings;
+use Eyika\Atom\Framework\Http\Middlewares\ThrottleRequestsMiddleware;
 use Eyika\Atom\Framework\Http\Middlewares\TrimStrings;
 use Eyika\Atom\Framework\Http\Middlewares\TrustProxies;
 use Eyika\Atom\Framework\Http\Middlewares\ValidatePostSize;
@@ -53,7 +53,7 @@ class Kernel extends FoundationKernel
         'api' => [
             HandleCors::class,
             // EnsureFrontendRequestsAreStateful::class,  NOT Yet implemented
-            ThrottleRequestsMiddleware::class.':api',
+            // ThrottleRequestsMiddleware::class,
             SubstituteBindings::class,
         ],
     ];
