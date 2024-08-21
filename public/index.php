@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 use Eyika\Atom\Framework\Http\Server;
 
