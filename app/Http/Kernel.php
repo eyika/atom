@@ -45,7 +45,7 @@ class Kernel extends FoundationKernel
             ShareErrorsFromSession::class,
             EncryptCookies::class,
             // AddQueuedCookiesToResponse::class,  NOT Yet implemented
-            AuthenticateSession::class,
+            // AuthenticateSession::class,
             // VerifyCsrfToken::class,
             SubstituteBindings::class,
         ],
