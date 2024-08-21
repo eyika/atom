@@ -23,7 +23,6 @@ abstract class Model implements ModelInterface
     public function __construct(array $values = [], $child = null)
     {
         $this->child = $child;
-        mysqly::auth(env('DB_USER'), env('DB_PASS'), env('DB_NAME'), env('DB_HOST'));
         $this->prepareModel($values);
     }
 }
