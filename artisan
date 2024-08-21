@@ -52,7 +52,6 @@ $kernel = $app->make(Eyika\Atom\Framework\Foundation\Contracts\ConsoleKernel::cl
 $arg_v = $argv;
 
 array_shift($arg_v);
-print_r($arg_v);
 $command = array_shift($arg_v) ?? 'random-quote';
 $inputs = $arg_v ?? [];
 

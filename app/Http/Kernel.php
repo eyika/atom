@@ -46,7 +46,7 @@ class Kernel extends FoundationKernel
             EncryptCookies::class,
             // AddQueuedCookiesToResponse::class,  NOT Yet implemented
             AuthenticateSession::class,
-            VerifyCsrfToken::class,
+            // VerifyCsrfToken::class,
             SubstituteBindings::class,
         ],
 
