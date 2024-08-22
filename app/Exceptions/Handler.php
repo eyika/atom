@@ -3,11 +3,9 @@
 namespace App\Exceptions;
 
 use Eyika\Atom\Framework\Exceptions\NotImplementedException;
+use Eyika\Atom\Framework\Foundation\ExceptionHandler;
 
-class Exception
+class Handler extends ExceptionHandler
 {
-    public function render ()
-    {
-        throw new NotImplementedException("Feature is not yet implemented", 1);
-    }
+
 }

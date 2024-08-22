@@ -1,28 +1,21 @@
 <?php
 
 namespace App\Models;
-// require_once __DIR__."/../libs/helpers.php"; May need to uncomment this
 
-use Eyika\Atom\Framework\Support\Database\Concerns\InitsModelEvents;
-use Eyika\Atom\Framework\Support\Database\Concerns\QueryBuilder;
-use Eyika\Atom\Framework\Support\Database\Contracts\ModelInterface;
 use Eyika\Atom\Framework\Support\Database\Contracts\UserModelInterface;
-use Eyika\Atom\Framework\Support\Database\mysqly;
+use Eyika\Atom\Framework\Support\Database\Model as DatabaseModel;
 
-abstract class Model implements ModelInterface
+abstract class Model extends DatabaseModel
 {
-    use QueryBuilder, InitsModelEvents;
-
     /**
      * Create a new model instance.
      *
-     * @param array  $attributes
-     * @param self|self&UserModelInterface $child
+     * @param array  $values
+     * @param self|UserModelInterface $child
      * @return void
      */
     public function __construct(array $values = [], $child = null)
     {
-        $this->child = $child;
-        $this->prepareModel($values);
+        parent::__construct($values, $child);
     }
 }

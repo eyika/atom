@@ -5,8 +5,8 @@
 | Create The Application
 |--------------------------------------------------------------------------
 |
-| The first thing we will do is create a new Laravel application instance
-| which serves as the "glue" for all the components of Laravel, and is
+| The first thing we will do is create a new Atom application instance
+| which serves as the "glue" for all the components of Atom, and is
 | the IoC container for the system binding all of the various parts.
 |
 */
@@ -38,10 +38,10 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
-// $app->singleton(  TODO::
-//     Illuminate\Contracts\Debug\ExceptionHandler::class,
-//     App\Exceptions\Handler::class
-// );
+$app->singleton(
+    Eyika\Atom\Framework\Foundation\Contracts\ExceptionHandler::class,
+    App\Exceptions\Handler::class
+);
 
 /*
 |--------------------------------------------------------------------------
