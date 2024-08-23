@@ -2,9 +2,18 @@
     "name": "eyika/atom",
     "description": "Framework template for Atom, An MVC microframework for PHP. Quite heavily inspired by Laravel",
     "type": "project",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/path/to/your/local/package",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "eyika/atom-framework": "dev-main",
+        "eyika/atom-framework": "*",
         "nesbot/carbon": "^3.7",
         "monolog/monolog": "^3.7",
         "predis/predis": "^2.2",
