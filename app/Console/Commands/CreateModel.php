@@ -7,8 +7,8 @@ use Eyika\Atom\Framework\Support\Str;
 
 class SampleCommand extends Command
 {
-    public function handle(array $arguments = []): int
+    public function handle(array $arguments = []): bool
     {
-        return 0;
+        return false;
     }
 }

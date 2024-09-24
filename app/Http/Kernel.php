@@ -16,6 +16,7 @@ use Eyika\Atom\Framework\Http\Middlewares\TrimStrings;
 use Eyika\Atom\Framework\Http\Middlewares\TrustProxies;
 use Eyika\Atom\Framework\Http\Middlewares\ValidatePostSize;
 use Eyika\Atom\Framework\Http\Middlewares\VerifyCsrfToken;
+use Eyika\Atom\Framework\Http\Middlewares\ServePublicAssets;
 
 class Kernel extends FoundationKernel
 {
@@ -41,6 +42,7 @@ class Kernel extends FoundationKernel
      */
     protected $middlewareGroups = [
         'web' => [
+            ServePublicAssets::class,
             StartSession::class,
             ShareErrorsFromSession::class,
             EncryptCookies::class,
@@ -52,6 +54,7 @@ class Kernel extends FoundationKernel
 
         'api' => [
             HandleCors::class,
+            ServePublicAssets::class,
             // EnsureFrontendRequestsAreStateful::class,  NOT Yet implemented
             // ThrottleRequestsMiddleware::class,
             SubstituteBindings::class,
