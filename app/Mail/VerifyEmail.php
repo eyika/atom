@@ -2,7 +2,7 @@
 namespace App\Mail;
 
 use App\Mail\Mailer;
-use Eyika\Atom\Framework\Support\View;
+use Eyika\Atom\Framework\Support\View\Twig;
 use PHPMailer\PHPMailer\Exception;
 
 class VerifyEmail
@@ -25,7 +25,7 @@ class VerifyEmail
     public static function send(string $address, string $name, string $subject, string $code)
     {
         try {
-            $html = View::make('verify.html', '/Mail/html/', [
+            $html = Twig::make('verify.html', '/Mail/html/', [
                 'title' => "Email Verification",
                 'header' => "Email Verification",
                 'sender_email' => env('NOREPLY_EMAIL_USER'),  //$sender->email,
@@ -35,7 +35,7 @@ class VerifyEmail
                     "If it wasn't you please simply disregard this email. If it was you, then <span style='font-weight: 400;'>use this code <strong>$code</strong> to verify your email or click the “Verify Email Button” below to Verify Your Account.</span>"
                 ],
                 'links' => [
-                    'Verify Email' => "https://backtestfx.com/auth/verify?email=$address&code=$code"
+                    'Verify Email' => config('app.url')."/auth/verify?email=$address&code=$code"
                 ]
             ], true);
 

@@ -2,15 +2,6 @@
     "name": "eyika/atom",
     "description": "Framework template for Atom, An MVC microframework for PHP. Quite heavily inspired by Laravel",
     "type": "project",
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../atomframework",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
     "require": {
         "php": "^7.4 || ^8.0",
         "eyika/atom-framework": "dev-dev",
@@ -23,7 +14,10 @@
         "guzzlehttp/guzzle": "^7.9",
         "dragonmantank/cron-expression": "^3.3",
         "eftec/bladeone": "^4.13",
-        "eftec/bladeonehtml": "^2.4"
+        "eftec/bladeonehtml": "^2.4",
+        "league/flysystem": "^3.28",
+        "voku/portable-ascii": "^2.0",
+        "ramsey/uuid": "^4.7"
     },
     "require-dev": {
         "phpunit/phpunit": "^11.3"
