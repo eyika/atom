@@ -6,7 +6,7 @@ use Eyika\Atom\Framework\Support\Facade\Facade;
 date_default_timezone_set('UTC');
 define('ATOM_START', microtime(true));
 
-$log_path = __DIR__."/../storage/logs/php_error.log";
+$log_path = __DIR__."/storage/logs/php_error.log";
 ini_set('error_log', $log_path);
 
 /*
