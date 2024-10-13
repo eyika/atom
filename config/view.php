@@ -3,7 +3,7 @@
 return [
 
     /**
-     * This will determine wether to use Advance Templating Bladelike Templating Engine
+     * This will determine wether to use Advance Bladelike Templating Engine
      * For Compiling Views and Email Templates or Basic Twig-like Templating Engine
      */
     'use_advance_engine' => env('USE_ADVANCE_ENGINE', 'true') == 'true',

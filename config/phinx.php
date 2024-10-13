@@ -1,13 +1,6 @@
 <?php
 require_once __DIR__."/../vendor/autoload.php";
 require_once __DIR__."/../vendor/eyika/atom-framework/src/helpers.php";
-use Dotenv\Dotenv;
-
-$ds = DIRECTORY_SEPARATOR;
-$dotenv = Dotenv::createImmutable(__DIR__.$ds."..".$ds);
-$dotenv->safeLoad();
-
-$dotenv->required(['DB_ADAPTER', 'DB_HOST', 'DB_DATABASE', 'DB_USERNAME', 'DB_PASSWORD', 'DB_PORT'])->notEmpty();
 
 return
 [
