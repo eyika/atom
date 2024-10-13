@@ -33,6 +33,7 @@
             "@php artisan key:generate --ansi"
         ],
         "post-update-cmd": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan vendor:publish --tag=atom-assets --ansi --force"
         ]
     },
