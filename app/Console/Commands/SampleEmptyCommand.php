@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use Eyika\Atom\Framework\Foundation\Console\Command;
-use Eyika\Atom\Framework\Support\Str;
 
 class SampleEmptyCommand extends Command
 {
