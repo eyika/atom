@@ -8,4 +8,4 @@ Route::get('', function () {
     return Response::view('index');
 });
 
-Route::get('/name/$name', [HelloController::class, 'index']);
+Route::get('/name/{name}', [HelloController::class, 'index']);
