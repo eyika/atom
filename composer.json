@@ -5,6 +5,8 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "eyika/atom-framework": "dev-main",
+        "psr/cache": "^1.0 || ^2.0 || ^3.0",
+        "filp/whoops": "^2.16",
         "nesbot/carbon": "^3.7",
         "monolog/monolog": "^3.7",
         "predis/predis": "^2.2",
@@ -39,7 +41,9 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Database\\": "database/",
+            "Test\\": "tests/"
         }
     },
     "authors": [

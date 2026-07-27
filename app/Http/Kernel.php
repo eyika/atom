@@ -3,20 +3,20 @@
 namespace App\Http;
 
 use Eyika\Atom\Framework\Foundation\Kernel as FoundationKernel;
-use Eyika\Atom\Framework\Http\Middlewares\AuthenticateSession;
+// App-level middlewares (scaffolded in this template — edit them freely).
+use App\Http\Middlewares\EncryptCookies;
+use App\Http\Middlewares\HandleCors;
+use App\Http\Middlewares\PreventRequestsDuringMaintenance;
+use App\Http\Middlewares\TrimStrings;
+use App\Http\Middlewares\TrustProxies;
+// Framework-shipped middlewares.
 use Eyika\Atom\Framework\Http\Middlewares\ConvertEmptyStringsToNull;
-use Eyika\Atom\Framework\Http\Middlewares\EncryptCookies;
-use Eyika\Atom\Framework\Http\Middlewares\HandleCors;
-use Eyika\Atom\Framework\Http\Middlewares\PreventRequestsDuringMaintenance;
+use Eyika\Atom\Framework\Http\Middlewares\ServePublicAssets;
 use Eyika\Atom\Framework\Http\Middlewares\ShareErrorsFromSession;
 use Eyika\Atom\Framework\Http\Middlewares\StartSession;
 use Eyika\Atom\Framework\Http\Middlewares\SubstituteBindings;
-use Eyika\Atom\Framework\Http\Middlewares\ThrottleRequestsMiddleware;
-use Eyika\Atom\Framework\Http\Middlewares\TrimStrings;
-use Eyika\Atom\Framework\Http\Middlewares\TrustProxies;
 use Eyika\Atom\Framework\Http\Middlewares\ValidatePostSize;
 use Eyika\Atom\Framework\Http\Middlewares\VerifyCsrfToken;
-use Eyika\Atom\Framework\Http\Middlewares\ServePublicAssets;
 
 class Kernel extends FoundationKernel
 {

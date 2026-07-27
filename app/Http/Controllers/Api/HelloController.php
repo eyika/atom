@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Eyika\Atom\Framework\Http\Request;
-use Eyika\Atom\Framework\Http\Response;
+use Eyika\Atom\Framework\Support\Facade\Response;
 
 class HelloController extends Controller
 {

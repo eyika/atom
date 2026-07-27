@@ -126,40 +126,41 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
-    /*********************************************************************
-     *                                                                   *
-     *   Everything below here will be implemented in a future release   *
-     *                                                                   *
-     ********************************************************************/
-
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
     |
-    | The service providers listed here will be automatically loaded on the
-    | request to your application. Feel free to add your own services to
-    | this array to grant expanded functionality to your applications.
+    | The service providers listed here are loaded on every request to your
+    | application. The framework no longer hardcodes any \App\Providers\* class
+    | (PKG-06) — this app owns its own provider list. RouteServiceProvider is what
+    | wires requests to route files, so keep it here. Atom packages are also
+    | auto-discovered from their composer.json extra.atom.providers (PKG-02).
     |
     */
 
-    // 'providers' => ServiceProvider::defaultProviders()->merge([
-    //     \App\Providers\BladeServiceProvider::class,
+    'providers' => [
+        /*
+         * Default service providers.
+         */
+        \App\Providers\CacheServiceProvider::class,
+        \App\Providers\RouteServiceProvider::class,
+        \App\Providers\ConsoleServiceProvider::class,
+        \App\Providers\EventServiceProvider::class,
+        \App\Providers\ViewServiceProvider::class,
+        \App\Providers\DatabaseServiceProvider::class,
 
-    //     /*
-    //      * Package Service Providers...
-    //      */
+        /*
+         * Package Service Providers...
+         */
 
-    //     /*
-    //      * Application Service Providers...
-    //      */
-    //     App\Providers\AppServiceProvider::class,
-    //     App\Providers\AuthServiceProvider::class,
-    //     // App\Providers\BroadcastServiceProvider::class,
-    //     App\Providers\EventServiceProvider::class,
-    //     App\Providers\RouteServiceProvider::class,
-
-    // ])->toArray(),
+        /*
+         * Application Service Providers...
+         */
+        \App\Providers\AppServiceProvider::class,
+        // \App\Providers\AuthServiceProvider::class,
+        // \App\Providers\BroadcastServiceProvider::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------

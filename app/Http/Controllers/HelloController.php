@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Eyika\Atom\Framework\Http\Request;
-use Eyika\Atom\Framework\Http\Response;
+use Eyika\Atom\Framework\Support\Facade\Response;
 
 class HelloController extends Controller
 {
