@@ -2,3 +2,5 @@
 composer.lock
 composer.dev.json
 .env
+
+.phpunit.cache/
