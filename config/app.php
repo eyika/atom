@@ -61,6 +61,48 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Trusted Proxies
+    |--------------------------------------------------------------------------
+    |
+    | Upstream addresses whose X-Forwarded-* headers this app will believe. Each
+    | entry may be a literal IP or a CIDR block (10.0.0.0/8, 2001:db8::/32).
+    |
+    | This is EMPTY by default and should stay that way unless the app really is
+    | behind a proxy. Anything listed here can set the client IP, host and scheme
+    | your app sees, so trusting an address you don't control hands those to the
+    | caller. Note that behind LiteSpeed and similar the PHP process often sees
+    | REMOTE_ADDR=127.0.0.1, so trusting loopback can mean trusting everyone.
+    |
+    | '*' trusts whatever peer connects. Only correct when something upstream is
+    | guaranteed to strip inbound X-Forwarded-* headers.
+    |
+    */
+
+    'trusted_proxies' => array_values(array_filter(array_map(
+        'trim',
+        explode(',', (string) env('TRUSTED_PROXIES', ''))
+    ), fn ($proxy) => $proxy !== '')),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Trusted Hosts
+    |--------------------------------------------------------------------------
+    |
+    | Host header allowlist. When set, a request whose Host is not listed falls
+    | back to app.url rather than being echoed into generated URLs — which is
+    | what stops a poisoned Host reaching password-reset links and emails.
+    |
+    | Leave empty to disable the check.
+    |
+    */
+
+    'trusted_hosts' => array_values(array_filter(array_map(
+        'trim',
+        explode(',', (string) env('TRUSTED_HOSTS', ''))
+    ), fn ($host) => $host !== '')),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |
