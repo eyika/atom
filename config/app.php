@@ -61,6 +61,41 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Serve Public Assets Through PHP
+    |--------------------------------------------------------------------------
+    |
+    | When true, ServePublicAssets serves files from public/ through PHP. That is
+    | for environments with no web server in front (php -S, some shared hosts).
+    |
+    | Leave it FALSE wherever nginx/Apache/LiteSpeed already serves static files:
+    | routing assets through PHP is slower, and it puts file reads on a code path
+    | that has to be trusted rather than one the web server handles.
+    |
+    | Note this key was previously read by the middleware but defined in no config
+    | file, so the feature was off unless an app added the key by hand.
+    |
+    */
+
+    'serve_public_assets' => env('SERVE_PUBLIC_ASSETS', false),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Asset Cache Lifetime
+    |--------------------------------------------------------------------------
+    |
+    | max-age (seconds) for assets served by ServePublicAssets. 0 means always
+    | revalidate — assets still get ETag/Last-Modified, so an unchanged file costs
+    | a 304 rather than a re-download.
+    |
+    | Raise this ONLY if your asset filenames are content-hashed. A cached stale
+    | asset cannot be withdrawn once a client has it.
+    |
+    */
+
+    'asset_cache_max_age' => (int) env('ASSET_CACHE_MAX_AGE', 0),
+
+    /*
+    |--------------------------------------------------------------------------
     | Trusted Proxies
     |--------------------------------------------------------------------------
     |
